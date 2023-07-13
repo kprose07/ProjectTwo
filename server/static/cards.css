@@ -2,8 +2,8 @@
 .news_cards {
     display: flex;
     flex-direction: row;
-    
-    max-width:max-content;
+
+    max-width: max-content;
     height: 206px;
     border: 1px solid #6C756B;
     background: #FFF;
@@ -153,6 +153,7 @@
     max-width: 290px;
     height: 84px;
 }
+
 /* saved card */
 .saved_scroll {
     display: flex;
@@ -180,6 +181,7 @@
     border: 3px solid #FFF;
     background-color: var(--section_break);
 }
+
 .saved_card {
     display: flex;
     flex-direction: column;
@@ -197,6 +199,7 @@
     line-height: normal;
     margin-top: 10px;
 }
+
 .saved_card button {
     border: none;
     cursor: pointer;
@@ -205,9 +208,11 @@
     margin-top: 11px;
     margin-left: -10px;
 }
-.saved_card button:focus{
-outline: none;
+
+.saved_card button:focus {
+    outline: none;
 }
+
 .saved_img {
     width: 100%;
     height: 150.305px;
@@ -215,9 +220,10 @@ outline: none;
     border: 1.503px solid #DADADA;
     object-fit: cover center;
 }
+
 /* Add Buzzes */
-.add_buzz{
-    width:780px;
+.add_buzz {
+    width: 780px;
     height: 232px;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%23333' stroke-width='2' stroke-dasharray='22' stroke-dashoffset='5' stroke-linecap='round'/%3e%3c/svg%3e");
     border-radius: 20px;
@@ -227,6 +233,7 @@ outline: none;
     align-items: center;
 
 }
+
 .add_buzz button {
     border: none;
     cursor: pointer;
@@ -239,19 +246,21 @@ outline: none;
 .add_buzz button:focus {
     outline: none;
 }
-.add_buzz img{
+
+.add_buzz img {
     width: 176.796px;
-height: 140.049px;
+    height: 140.049px;
 }
-.add_text{
+
+.add_text {
     color: #3D3D3D;
-text-align: center;
-font-family: Poppins;
-font-size: 34.078px;
-font-style: normal;
-font-weight: 400;
-line-height: 51.117px;
-letter-spacing: -0.17px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 34.078px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 51.117px;
+    letter-spacing: -0.17px;
 }
 
 /* Your card */
@@ -321,6 +330,121 @@ letter-spacing: -0.17px;
     max-width: 290px;
     height: 84px;
 }
+
+/* Create Blog */
+.pop_up {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+}
+
+.add_blog_popup {
+    display: flex;
+    flex-direction: row;
+    width: 794px;
+    height: 917px;
+    border: 1px solid #6C756B;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+    margin: auto;
+    margin-top: 100px;
+    transform: scale(0.8);
+    transform-origin: left top;
+}
+
+.col_one_pop {
+    display: flex;
+    flex-direction: column;
+    margin-left: 87px;
+    margin-top: 60px;
+}
+
+.col_one_pop img {
+    display: flex;
+    width: 620px;
+    height: 277px;
+
+    object-fit: cover;
+}
+
+.blog_form {
+    margin-top: 25px;
+    width: 620px;
+}
+
+.blog_form input {
+    color: #8B8B8B;
+    font-family: Myanmar Khyay;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    border: 2px solid #8B8B8B;
+    outline: none;
+    margin-bottom: 35px;
+}
+
+.blog_info_details {
+    height: 382px;
+    border: 2px solid #8B8B8B;
+    margin-bottom: 35px;
+
+
+}
+
+.blog_info_details textarea {
+    color: #8B8B8B;
+    font-family: Myanmar Khyay;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+    overflow-wrap: break-word;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+.blog_info_btn{
+    display: flex;
+    justify-content: end;
+}
+.blog_info_btn input{ 
+    width: 214px;
+    height:40px;
+    border: none;
+    border-radius: 62.248px;
+    background: #6C756B;
+    color: white;
+    font-size:20px;
+}
+.col_two_pop{
+    display: flex;
+    margin-top:37px ;
+   margin-left: 24px;
+}
+.col_two_pop button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: #FFF;
+    width: 23px;
+    height: 21px;
+}
+
+.col_two_pop button:focus {
+    outline: none;
+}
+
+.col_two_pop img{
+    width: 23px;
+height: 21px;
+}
 /* Media Quries */
 @media screen and (max-width: 1500px) {
     .section_one {
@@ -335,6 +459,7 @@ letter-spacing: -0.17px;
         overflow-y: visible;
 
     }
+
     .saved_scroll {
         display: flex;
         flex-direction: column;

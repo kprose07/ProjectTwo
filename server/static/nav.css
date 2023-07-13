@@ -46,11 +46,21 @@ body{
     margin-left: auto !important;
     margin-right: auto !important;
 }
+.nav_btn {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color:#f2f4ff00;
+    margin-left: 85% !important;
+}
 
+.nav_btn:focus {
+    outline: none;
+}
 #prof_img {
     width: 42px;
     height: 39px;
-    margin-left: 85%;
+
     object-fit: contain;
 }
 /* Footer */
