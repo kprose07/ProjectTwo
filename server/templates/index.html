@@ -32,6 +32,33 @@
         </button>
       </div>
     </nav>
+    <div  id="news_popup"  class="news_pop_up">
+      <div class="view_news_popup">
+        <img src="../images/savenews.png" alt="save" class="save_icon">
+        <div class="col_one_pop">
+          <img src="../images/adminnews.jpg" alt="">
+          <form action="GET" method="post" class="news_form">
+            <div class="news_info">
+              <div class="news_title_pop">
+              <p class="news_pop_title" id="buzzTitle" >Title</p>
+              </div>
+            </div>
+            <div class="news_info news_info_details">
+              <div class="news_details_pop">
+                <p class="news_pop_detail_text" id="buzzDetail" >Buzz Buzz Buzz...</p>
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="col_two_pop">
+          <button onclick="close_news_popup()">
+          <img src="../images/close.png" alt="">
+        </button>
+        </div>
+
+      </div>
+    </div>
+
     <div class="top_space"></div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -58,31 +85,38 @@
       <div class="col_one">
         <p class="news_title"> Today's News</p>
         <hr class='section_break'></hr>
-        <div class="news_cards">
-          <div class="card_col_one">
-            <img class="card_img" src="../images/adminnews.jpg" alt="news"/>
-          </div>
-          <div class="card_col_two">
-            <div class="card_title_row">
-              <p class="news_card_title">TBD</p>
-              <p class="news_card_subtit"> | By: TBD | Author: TBD | Date: TBD</p>
+        <div class="cards_scroll_news">
+          <div onclick="viewNews()" id="1" class="news_cards">
+            <div class="card_col_one">
+              <img class="card_img" src="../images/adminnews.jpg" alt="news"/>
             </div>
-            <p class="news_card_preview">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
+            <div class="card_col_two">
+              <div class="card_title_row">
+                <p class="news_card_title">TBD</p>
+                <p class="news_card_subtit">Author: TBD | Date: TBD</p>
+              </div>
+              <p class="news_card_preview">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
 
+            </div>
+            <div class="card_col_three">
+              <button>
+              <img src="../images/save.png" alt="save">
+            </button>
+            </div>
           </div>
-          <div class="card_col_three">
-            <button>
-            <img src="../images/save.png" alt="save">
-          </button>
-          </div>
-        </div>
-
+      </div>
       </div>
       <div class="col_two">
+        <div id="not_show_feed" class="no_feed">
+          <div class="no_feed_buzz">
+            <button onclick="location.href = '../templates/Blogs.html'"><img src="../images/Add.png" alt="add"></button>
+            <p class="no_feed_text">Add Blog</p>
+          </div>
+        </div>
           <div class="post_container">
             <p class="feed_title">Your Feed</p>
             <hr class='section_break_feed'></hr>
-            <div class="post_scroll">
+            <div id="show_feed" class="post_scroll">
                 <div class="post_cards">
                   <p class="post_title">Post TBD</p>
                   <p class="post_details">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
@@ -133,6 +167,9 @@
     <img src="../images/buzzlogo.png" alt="logo"/>
     <p>© 2023 SEO. All rights reserved.</p>
   </div>
+  <script>
+    
+  </script>
   <script src="../js/web.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
