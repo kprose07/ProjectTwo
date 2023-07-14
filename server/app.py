@@ -91,6 +91,11 @@ def register():
         return redirect(url_for('home_page'))  # if so - send to home page
     return render_template('register.html', title='Register', form=form)
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', subtitle='profile_page', text='info on the user')
+
+
 # Login and logout logic
 
 
@@ -127,12 +132,9 @@ def logout():
 # this handles everything with the news articles
 
 
-@app.route('/article', methods=['POST', 'GET'])
-def article():
-    if request.method == 'POST':
-        pass
-    else:
-        return render_template('articles.html', subtitle='Articles', text='This is the articles page')
+@app.route('/blogs', methods=['POST', 'GET'])
+def blogs():
+    return render_template('Blogs.html', subtitle='Blogs', text='This is the blogs page')
 
 
 if __name__ == '__main__':
