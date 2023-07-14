@@ -193,7 +193,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg nav_container fixed-top">
-  <a href="{{url_for('../templates/index.html')}}">
+  <a href="{{url_for('home_page')}}">
     <img src="../static/images/buzzlogo.png" alt="logo" class="nav_logo" />
   </a>
   <button
@@ -217,11 +217,24 @@
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('blogs')}}">Blogs</a>
       </li>
+      {% if current_user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{url_for('register')}}">SignIn</a>
+    </li>
+    {%endif%}
+   {% if not current_user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+      </li>
+    {%endif%}
+    <button class="nav_btn" onclick="ProfileBtn()">
+      <img src="../static/images/Profile.png" alt="profile" id="prof_img" />
+    </button>
     </ul>
+    
+  </ul>
 
-      <button class="nav_btn" onclick="ProfileBtn()">
-        <img src="../static/images/Profile.png" alt="profile" id="prof_img" />
-      </button>
+      
   
   </div>
 </nav>

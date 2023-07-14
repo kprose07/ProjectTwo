@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
   {% block head %}
@@ -33,13 +33,16 @@
       href="{{url_for('static', filename='css/profile.css')}}"
     />
   </head>
-  {% endblock %} 
-  {% block body %}
+  {% endblock %} {% block body %}
 
   <body>
     <nav class="navbar navbar-expand-lg nav_container fixed-top">
-      <a href="../templates/index.html">
-        <img src="{{ url_for('static', filename='images/buzzlogo.png')}}" alt="logo" class="nav_logo" />
+      <a href="{{url_for('home_page')}}">
+        <img
+          src="{{ url_for('static', filename='images/buzzlogo.png')}}"
+          alt="logo"
+          class="nav_logo"
+        />
       </a>
       <button
         class="navbar-toggler"
@@ -55,13 +58,22 @@
       <div class="collapse navbar-collapse navbar_contain" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../templates/index.html"
+            <a class="nav-link" href="{{url_for('home_page')}}"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../templates/Blogs.html">Blogs</a>
+            <a class="nav-link" href="{{url_for('blogs')}}">Blogs</a>
           </li>
+          {% if not current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">SignIn</a>
+          </li>
+          {%endif%} {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          </li>
+          {%endif%}
         </ul>
         <button class="nav_btn" onclick="ProfileBtn()">
           <img src="../static/images/Profile.png" alt="profile" id="prof_img" />
@@ -77,9 +89,15 @@
         <p class="prof_title">Your Profile Information</p>
         <p class="prof_details">Blogs Amount</p>
         <p class="prof_blog_num">0</p>
+        {% if not current_user.is_authenticated %}
+        <div class="prof_name">{{current_user.username}}</div>
+        {%else%}
         <div class="prof_name">Name</div>
-        <div class="prof_email">Email</div>
-        <button class="prof_btn">Logout</button>
+        {% endif %}
+        <!-- <div class="prof_email">Email</div> -->
+        <a class="prof_btn" href="{{url_for('logout')}}">
+          <button class="prof_btn">Logout</button>
+        </a>
       </div>
       <div class="prof_col_two">
         <img src="../static/images/cofee.jpg" alt="coffe" />
@@ -108,6 +126,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  {% endblock %} 
-
+  {% endblock %}
 </html>

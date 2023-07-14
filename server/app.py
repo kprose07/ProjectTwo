@@ -8,17 +8,17 @@ from flask_sqlalchemy import SQLAlchemy
 # for dates
 from datetime import datetime
 # helps me get the current user and check if they are loggedInand then display pages accordingly
-from flask_login import LoginManager, current_user, logout_user
+from flask_login import LoginManager, current_user, logout_user, login_user
 # import os
-#specifying tyhe directory names
+# specifying tyhe directory names
 # TEMPLATE_DIR = os.path.abspath('../templates')
 # STATIC_DIR = os.path.abspath('../static')
 
 
-app = Flask(__name__ )
+app = Flask(__name__)
 
 # database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///store.db'
 db = SQLAlchemy(app)
 
 # helps with redirects
@@ -26,7 +26,8 @@ proxied = FlaskBehindProxy(app)
 
 # Initialize Flask-Login
 login_manager = LoginManager(app)
-
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
 # secret key to help with CRSF token
 app.config['SECRET_KEY'] = '5a063a9f5f7a1769407c2c2066c5023e'
 
@@ -40,13 +41,27 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=False, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+    is_active = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+    def get_id(self):
+        return str(self.id)
+
 
 with app.app_context():
     db.create_all()
+
+
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.filter_by(id=int(user_id), is_active=True).first()
 
 # newsArticle model
 
@@ -87,9 +102,11 @@ def register():
 
         # commit the changes to the database
         db.session.commit()
+        login_user(user)  # Log in the newly registered user
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home_page'))  # if so - send to home page
     return render_template('register.html', title='Register', form=form)
+
 
 @app.route('/profile')
 def profile():
@@ -114,6 +131,7 @@ def login():
 
         # Check if the user exists and the password is correct
         if user and user.password == form.password.data:
+            login_user(user)  # Log in the user
             flash('Login successful!', 'success')
             return redirect(url_for('home_page'))
         else:

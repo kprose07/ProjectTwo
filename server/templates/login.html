@@ -67,27 +67,18 @@
     </nav>
     <div class="log_sec">
       <div class="login_container">
-        <form action="" method="post" class="login_form">
-          <div class="login_info">
-            <input
-              placeholder="Email"
-              type="email"
-              name="email"
-              id="email"
-              required
-            />
+        <form method="POST" action="{{ url_for('login') }}">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+            {{ form.username.label(class="form-control-label") }} {{
+            form.username(class="form-control") }}
           </div>
-          <div class="login_info">
-            <input
-              placeholder="Password"
-              type="password"
-              name="password"
-              id="password"
-              required
-            />
+          <div class="form-group">
+            {{ form.password.label(class="form-control-label") }} {{
+            form.password(class="form-control") }}
           </div>
-          <div class="login_info_btn">
-            <input type="submit" value="Login!" />
+          <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
           </div>
         </form>
         <div class="log_prompt">
