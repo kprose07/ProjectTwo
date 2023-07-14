@@ -9,13 +9,13 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 # helps me get the current user and check if they are loggedInand then display pages accordingly
 from flask_login import LoginManager, current_user, logout_user
-
+# import os
 #specifying tyhe directory names
-TEMPLATE_DIR = os.path.abspath('../templates')
-STATIC_DIR = os.path.abspath('../static')
+# TEMPLATE_DIR = os.path.abspath('../templates')
+# STATIC_DIR = os.path.abspath('../static')
 
 
-app = Flask(__name__,template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR )
+app = Flask(__name__ )
 
 # database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
