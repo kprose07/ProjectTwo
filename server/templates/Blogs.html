@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% comment %} {% extends 'base.html' %}  {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
   {% block head %}
@@ -21,7 +21,7 @@
   {% endblock %} 
   {% block body %}
   <body>
-    <nav class="navbar navbar-expand-lg nav_container fixed-top">
+    {% comment %} <nav class="navbar navbar-expand-lg nav_container fixed-top">
       <a  href="../templates/index.html"> 
         <img src="{{ url_for('static', filename='images/buzzlogo.png')}}" alt="logo" class="nav_logo"/>
       </a>
@@ -39,7 +39,7 @@
           <img src="{{ url_for('static', filename='images/Profile.png') }}" alt="profile" id="prof_img" />
         </button>
       </div>
-    </nav>
+    </nav> {% endcomment %}
     <div  id="blog_popup"  class="pop_up">
       <div class="add_blog_popup">
         <div class="col_one_pop">

@@ -1,5 +1,7 @@
+{% extends 'base.html' %} 
 <!DOCTYPE html>
 <html lang="en">
+  {% block head %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,10 +33,13 @@
       href="{{url_for('static', filename='css/profile.css')}}"
     />
   </head>
+  {% endblock %} 
+  {% block body %}
+
   <body>
     <nav class="navbar navbar-expand-lg nav_container fixed-top">
       <a href="../templates/index.html">
-        <img src="../images/buzzlogo.png" alt="logo" class="nav_logo" />
+        <img src="{{ url_for('static', filename='images/buzzlogo.png')}}" alt="logo" class="nav_logo" />
       </a>
       <button
         class="navbar-toggler"
@@ -59,7 +64,7 @@
           </li>
         </ul>
         <button class="nav_btn" onclick="ProfileBtn()">
-          <img src="../images/Profile.png" alt="profile" id="prof_img" />
+          <img src="../static/images/Profile.png" alt="profile" id="prof_img" />
         </button>
       </div>
     </nav>
@@ -77,12 +82,12 @@
         <button class="prof_btn">Logout</button>
       </div>
       <div class="prof_col_two">
-        <img src="../images/cofee.jpg" alt="coffe" />
+        <img src="../static/images/cofee.jpg" alt="coffe" />
       </div>
     </div>
 
     <div class="footer">
-      <img src="../images/buzzlogo.png" alt="logo" />
+      <img src="../static/images/buzzlogo.png" alt="logo" />
       <p>© 2023 SEO. All rights reserved.</p>
     </div>
     <script src="../js/web.js"></script>
@@ -103,4 +108,6 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  {% endblock %} 
+
 </html>
