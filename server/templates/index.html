@@ -1,183 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buzz</title>
-    <link rel="icon" type="image/x-icon" href="../images/buzzlogo.png" />
-    <link rel="stylesheet" href="../static/variables.css" />
-    <link rel="stylesheet" href="../static/nav.css" />
-    <link rel="stylesheet" href="../static/home.css" />
-    <link rel="stylesheet" href="../static/cards.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg nav_container fixed-top">
-      <a  href="../templates/index.html"> 
-        <img src="../images/buzzlogo.png" alt="logo" class="nav_logo"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse navbar_contain" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="../templates/index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../templates/Blogs.html">Blogs</a>
-          </li>
-        </ul>
-        <button class="nav_btn"  onclick="ProfileBtn()">
-          <img src="../images/Profile.png" alt="profile" id="prof_img" />
-        </button>
-      </div>
-    </nav>
-    <div  id="news_popup"  class="news_pop_up">
-      <div class="view_news_popup">
-        <img src="../images/savenews.png" alt="save" class="save_icon">
-        <div class="col_one_pop">
-          <img src="../images/adminnews.jpg" alt="">
-          <form action="GET" method="post" class="news_form">
-            <div class="news_info">
-              <div class="news_title_pop">
-              <p class="news_pop_title" id="buzzTitle" >Title</p>
-              </div>
-            </div>
-            <div class="news_info news_info_details">
-              <div class="news_details_pop">
-                <p class="news_pop_detail_text" id="buzzDetail" >Buzz Buzz Buzz...</p>
-                </div>
-              </div>
-          </form>
-        </div>
-        <div class="col_two_pop">
-          <button onclick="close_news_popup()">
-          <img src="../images/close.png" alt="">
-        </button>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="top_space"></div>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="../images/Buzzslideone.png" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="../images/Buzzslidetwo.png" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="../images/Buzzslidethree.png" alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    <div class="section_one">
-      <div class="col_one">
-        <p class="news_title"> Today's News</p>
-        <hr class='section_break'></hr>
-        <div class="cards_scroll_news">
-          <div onclick="viewNews()" id="1" class="news_cards">
-            <div class="card_col_one">
-              <img class="card_img" src="../images/adminnews.jpg" alt="news"/>
-            </div>
-            <div class="card_col_two">
-              <div class="card_title_row">
-                <p class="news_card_title">TBD</p>
-                <p class="news_card_subtit">Author: TBD | Date: TBD</p>
-              </div>
-              <p class="news_card_preview">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-
-            </div>
-            <div class="card_col_three">
-              <button>
-              <img src="../images/save.png" alt="save">
-            </button>
-            </div>
-          </div>
-      </div>
-      </div>
-      <div class="col_two">
-        <div id="not_show_feed" class="no_feed">
-          <div class="no_feed_buzz">
-            <button onclick="location.href = '../templates/Blogs.html'"><img src="../images/Add.png" alt="add"></button>
-            <p class="no_feed_text">Add Blog</p>
-          </div>
-        </div>
-          <div class="post_container">
-            <p class="feed_title">Your Feed</p>
-            <hr class='section_break_feed'></hr>
-            <div id="show_feed" class="post_scroll">
-                <div class="post_cards">
-                  <p class="post_title">Post TBD</p>
-                  <p class="post_details">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-                </div>
-                <div class="post_cards">
-                <p class="post_title">Post TBD</p>
-                <p class="post_details">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-                </div>
-                <div class="post_cards">
-              <p class="post_title">Post TBD</p>
-              <p class="post_details">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-                </div>
-                <div class="post_cards">
-                <p class="post_title">Post TBD</p>
-                <p class="post_details">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-              </div>
-                </div>
-            </div>
-         
-          <div class="saved_articles">
-            <p class="saved_title">Saved Buzzes</p>
-            <div class="saved_scroll">
-              <div class="saved_card">
-                <button><img class="saved_img" src="../images/adminnews.jpg" alt="savedimg"/></button>
-                <p class="saved_sub">How To eat...</p>
-              </div>
-              <div class="saved_card">
-                <button><img class="saved_img" src="../images/adminnews.jpg" alt="savedimg"/></button>
-                <p class="saved_sub">How To eat...</p>
-              </div>
-              <div class="saved_card">
-                <button><img class="saved_img" src="../images/adminnews.jpg" alt="savedimg"/></button>
-                <p class="saved_sub">How To eat...</p>
-              </div>
-              <div class="saved_card">
-                <button><img class="saved_img" src="../images/adminnews.jpg" alt="savedimg"/></button>
-                <p class="saved_sub">How To eat...</p>
-              </div>
-              <div class="saved_card">
-                <button><img class="saved_img" src="../images/adminnews.jpg" alt="savedimg"/></button>
-                <p class="saved_sub">How To eat...</p>
-              </div>
-            </div>
-          </div>
-    </div>
-  </div>
-  <div class="footer">
-    <img src="../images/buzzlogo.png" alt="logo"/>
-    <p>© 2023 SEO. All rights reserved.</p>
-  </div>
-  <script>
-    
-  </script>
-  <script src="../js/web.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-</html> -->
-
 {% extends 'base.html' %} 
 <!DOCTYPE html>
 <html lang="en">
@@ -287,27 +107,30 @@
     </div>
     <div class="section_one">
       <div class="col_one">
-        <p class="news_title"> Today's News</p>
-        <hr class='section_break'></hr>
+        <p class="news_title">Today's News</p>
+        <hr class="section_break" />
+        {% for page in pages %}
         <div class="news_cards">
           <div class="card_col_one">
-            <img class="card_img" src="../static/images/adminnews.jpg" alt="news"/>
+            <img class="card_img" src="{{ page.image_url }}" alt="news" />
           </div>
           <div class="card_col_two">
             <div class="card_title_row">
-              <p class="news_card_title">TBD</p>
-              <p class="news_card_subtit"> | By: TBD | Author: TBD | Date: TBD</p>
+              <p class="news_card_title">{{ page.title }}</p>
+              <p class="news_card_subtit">
+                | By: {{ page.author }} | Date: {{ page.date }}
+              </p>
             </div>
-            <p class="news_card_preview">Text Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text TextText Text Text...</p>
-
+            <p class="news_card_preview">{{ page.text }} - {{page.image_url}}</p>
           </div>
           <div class="card_col_three">
             <button>
-            <img src="../static/images/save.png" alt="save">
-          </button>
+              <img src="{{ page.image_url }}" alt="save" />
+            </button>
           </div>
         </div>
-
+        {% endfor %}
+        
       </div>
       <div class="col_two">
           <div class="post_container">
